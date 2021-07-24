@@ -5,15 +5,63 @@
   
 
   
-  <title>Hexo</title>
+  <title>必备工具与调试知识 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法l 直接调用目标">
+<meta property="og:type" content="article">
+<meta property="og:title" content="必备工具与调试知识">
+<meta property="og:url" content="http://example.com/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法l 直接调用目标">
 <meta property="og:locale">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a8eaa15-cdbc-4b90-8555-7e918053cf77/11.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47087ef3-5345-4dd6-b931-678d77db4a17/12.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11cb4290-c009-43c1-8caa-6cb961462fa8/1.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d0c8bbf-53d1-422c-a586-f1389ff5a494/2.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c0049ff-4c9b-4f83-bb5c-c5fd11a995ed/3.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3d4764a-b920-4391-81d0-a1750b62f4b8/4.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51b703dd-484d-46a5-af73-cb4c6a12a78d/5.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b220803-9825-4971-a9b5-832d4e59a05a/6.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea45bbea-7f8d-4507-b013-3640eeb1ed7f/7.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92dc1acc-c37c-49e3-87ba-f11412461a61/9.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2c7ca9a2-c325-4f94-ab58-381b51df799d/10.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/443a0db0-1303-4d42-9a39-518947a5c32e/11.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9322313c-92e7-49d1-8774-2d0a2f702a6b/12.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a19e810c-b17a-47f7-a6ab-3d532fca33c0/13.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a86414f6-6c8d-4031-8003-a420846fc94d/14.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/83f5e9e2-ea67-4068-b39e-ccfcd8464a1e/15.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6551ed03-a6aa-4720-b2b9-1196737f3b72/16.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/386a38a0-94aa-415a-a1e0-c9671492177a/17.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd028076-9d19-402d-991d-56127397c605/18.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/35a3b508-fb14-4401-ad2d-918da13ef6b1/19.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43a7770e-22aa-40a2-9cd7-51838eaa40b7/20.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e75bca4a-ace1-4bcf-90a4-ff21ddc3cabe/23.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0127cca-df37-4b83-b297-428b9c65aaa3/24.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42b1982f-5c8c-4a35-ab86-4bc0b42288c8/25.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/500a37bb-8141-47cf-a1e4-1a3483f3096e/26.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a1bb1539-5e08-4c4c-9c62-da9b0373592d/27.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/008bd69d-74f7-4066-b45f-2aa141e0077f/29.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eeb97369-a47a-4bbf-ae7b-c17b820d8056/30.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc17de5-3962-4291-8c2a-8bbf13e7a3b2/31.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/73f70e1b-b1dc-40cb-a3ad-c8a1c089f725/33.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5adb708-65b4-44ac-bf76-843926db7675/34.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc991159-c98c-4573-ac41-2d15cd4f008b/35.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/193954df-1447-41c9-927d-e4ecee7faefb/36.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fad81d6-2be6-47c9-9987-d46c8f08583c/37.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c7d0806-7252-4e55-9b90-996e0a10cc36/38.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/262fc062-ae08-4375-a80e-3442c8c54ea4/39.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09adc3dd-2440-485e-bdec-ea40673e216c/40.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a28b519-b35f-48bf-a710-e9b500fbc412/41.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06c10d1f-60d9-458c-bee7-358efe96af31/42.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f0309b01-341b-48b4-9088-e202abfd00d5/43.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a1438c2-4ec8-4317-ad7d-448adebea084/44.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1e08b446-2d11-427f-a207-eb60b62fd2b6/45.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7a7b3c5-cc9f-4bb0-83e2-1c3c7eb9dc78/46.png">
+<meta property="article:published_time" content="2021-07-24T17:44:46.000Z">
+<meta property="article:modified_time" content="2021-07-24T17:46:08.673Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a8eaa15-cdbc-4b90-8555-7e918053cf77/11.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -62,9 +110,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-必备工具与调试知识" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-必备工具与调试知识" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/" class="article-date">
   <time datetime="2021-07-24T17:44:46.000Z" itemprop="datePublished">2021-07-25</time>
@@ -77,8 +123,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/">必备工具与调试知识</a>
+    <h1 class="article-title" itemprop="name">
+      必备工具与调试知识
     </h1>
   
 
@@ -310,60 +356,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/07/11/hello-world/" class="article-date">
-  <time datetime="2021-07-11T06:57:14.020Z" itemprop="datePublished">2021-07-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/11/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2021/07/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/11/hello-world/" data-id="ckri2dm3z000058va2ibj38nh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
