@@ -7,61 +7,66 @@
   
   <title>必备工具与调试知识 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法l 直接调用目标">
+  <meta name="description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法 直接调用目标程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="必备工具与调试知识">
 <meta property="og:url" content="http://example.com/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法l 直接调用目标">
+<meta property="og:description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法 直接调用目标程">
 <meta property="og:locale">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a8eaa15-cdbc-4b90-8555-7e918053cf77/11.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47087ef3-5345-4dd6-b931-678d77db4a17/12.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11cb4290-c009-43c1-8caa-6cb961462fa8/1.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d0c8bbf-53d1-422c-a586-f1389ff5a494/2.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c0049ff-4c9b-4f83-bb5c-c5fd11a995ed/3.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3d4764a-b920-4391-81d0-a1750b62f4b8/4.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51b703dd-484d-46a5-af73-cb4c6a12a78d/5.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b220803-9825-4971-a9b5-832d4e59a05a/6.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea45bbea-7f8d-4507-b013-3640eeb1ed7f/7.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92dc1acc-c37c-49e3-87ba-f11412461a61/9.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2c7ca9a2-c325-4f94-ab58-381b51df799d/10.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/443a0db0-1303-4d42-9a39-518947a5c32e/11.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9322313c-92e7-49d1-8774-2d0a2f702a6b/12.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a19e810c-b17a-47f7-a6ab-3d532fca33c0/13.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a86414f6-6c8d-4031-8003-a420846fc94d/14.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/83f5e9e2-ea67-4068-b39e-ccfcd8464a1e/15.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6551ed03-a6aa-4720-b2b9-1196737f3b72/16.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/386a38a0-94aa-415a-a1e0-c9671492177a/17.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd028076-9d19-402d-991d-56127397c605/18.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/35a3b508-fb14-4401-ad2d-918da13ef6b1/19.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43a7770e-22aa-40a2-9cd7-51838eaa40b7/20.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e75bca4a-ace1-4bcf-90a4-ff21ddc3cabe/23.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0127cca-df37-4b83-b297-428b9c65aaa3/24.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42b1982f-5c8c-4a35-ab86-4bc0b42288c8/25.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/500a37bb-8141-47cf-a1e4-1a3483f3096e/26.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a1bb1539-5e08-4c4c-9c62-da9b0373592d/27.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/008bd69d-74f7-4066-b45f-2aa141e0077f/29.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eeb97369-a47a-4bbf-ae7b-c17b820d8056/30.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc17de5-3962-4291-8c2a-8bbf13e7a3b2/31.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/73f70e1b-b1dc-40cb-a3ad-c8a1c089f725/33.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5adb708-65b4-44ac-bf76-843926db7675/34.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc991159-c98c-4573-ac41-2d15cd4f008b/35.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/193954df-1447-41c9-927d-e4ecee7faefb/36.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fad81d6-2be6-47c9-9987-d46c8f08583c/37.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c7d0806-7252-4e55-9b90-996e0a10cc36/38.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/262fc062-ae08-4375-a80e-3442c8c54ea4/39.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09adc3dd-2440-485e-bdec-ea40673e216c/40.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a28b519-b35f-48bf-a710-e9b500fbc412/41.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06c10d1f-60d9-458c-bee7-358efe96af31/42.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f0309b01-341b-48b4-9088-e202abfd00d5/43.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a1438c2-4ec8-4317-ad7d-448adebea084/44.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1e08b446-2d11-427f-a207-eb60b62fd2b6/45.png">
-<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7a7b3c5-cc9f-4bb0-83e2-1c3c7eb9dc78/46.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/10.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/11.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/12.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/1.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/2.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/3.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/4.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/5.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/6.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/7.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/8.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/9.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/10.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/11.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/12.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/13.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/14.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/15.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/16.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/17.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/18.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/19.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/20.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/21.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/22.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/23.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/24.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/25.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/26.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/27.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/29.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/30.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/31.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/32.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/33.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/34.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/35.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/36.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/37.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/38.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/39.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/40.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/41.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/42.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/43.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/44.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/45.png">
+<meta property="og:image" content="http://example.com/.com//Tools/hexo/TmpPicture/46.png">
 <meta property="article:published_time" content="2021-07-24T17:44:46.000Z">
-<meta property="article:modified_time" content="2021-07-24T17:46:08.673Z">
+<meta property="article:modified_time" content="2021-07-24T18:17:19.775Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a8eaa15-cdbc-4b90-8555-7e918053cf77/11.png">
+<meta name="twitter:image" content="http://example.com/.com//Tools/hexo/TmpPicture/10.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -134,7 +139,7 @@
       
         <h1 id="makefile与CMake"><a href="#makefile与CMake" class="headerlink" title="makefile与CMake"></a>makefile与CMake</h1><p>一般使用makefile文件组织大型C/C++或者含有多个C/C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C/C++项目的常用方式。</p>
 <hr>
-<h1 id="gdb调试"><a href="#gdb调试" class="headerlink" title="gdb调试"></a>gdb调试</h1><h2 id="gdb调试方法l"><a href="#gdb调试方法l" class="headerlink" title="gdb调试方法l"></a>gdb调试方法l</h2><ul>
+<h1 id="gdb调试"><a href="#gdb调试" class="headerlink" title="gdb调试"></a>gdb调试</h1><h2 id="gdb调试方法"><a href="#gdb调试方法" class="headerlink" title="gdb调试方法"></a>gdb调试方法</h2><ul>
 <li><strong>直接调用目标程序</strong></li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb filename</span><br><span class="line"><span class="comment">//filename是需要启动的调试程序文件名</span></span><br></pre></td></tr></table></figure>
@@ -144,28 +149,167 @@
 </ul>
 <p>当一个程序已经启动，但又不想重启这个程序时，可以利用gdb attach程序的进程ID将gdb调试器attach到正在启动的程序上。</p>
 <p>首先利用ps查看PID号</p>
+<p><img src="/.com//Tools\hexo\TmpPicture\10.png" alt="10"></p>
 <p>发现刚才挂载到后台的Main程序正在运行，并且PID号为22101，利用gdb attach 22101把gdb attach到Main的进程上。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a8eaa15-cdbc-4b90-8555-7e918053cf77/11.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a8eaa15-cdbc-4b90-8555-7e918053cf77/11.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\11.png" alt="11"></p>
 <p>会有很多无关的信息，其中注意到显示   Attaching to process 22101  这代表已经连入目标进程中了。</p>
 <h2 id="利用gdb调试Redis"><a href="#利用gdb调试Redis" class="headerlink" title="利用gdb调试Redis"></a>利用gdb调试Redis</h2><ul>
 <li><strong>gdb常用调试命令概览和说明</strong></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://www.notion.so/ec9fad8e215c49a4b87a07fb1801fb20">Untitled</a></p>
+<table>
+<thead>
+<tr>
+<th>命令名称</th>
+<th>命令缩写</th>
+<th>命令说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>run</td>
+<td>r</td>
+<td>运行一个程序</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>c</td>
+<td>让暂停的程序继续运行</td>
+</tr>
+<tr>
+<td>break</td>
+<td>b</td>
+<td>添加断点</td>
+</tr>
+<tr>
+<td>tbreak</td>
+<td>tb</td>
+<td>添加临时点</td>
+</tr>
+<tr>
+<td>backtrace</td>
+<td>bt</td>
+<td>查看当前线程的调用堆栈</td>
+</tr>
+<tr>
+<td>frame</td>
+<td>f</td>
+<td>切换到当前调用线程的指定堆栈</td>
+</tr>
+<tr>
+<td>info</td>
+<td>info</td>
+<td>查看断点、线程等信息</td>
+</tr>
+<tr>
+<td>enable</td>
+<td>enable</td>
+<td>启用某个断点</td>
+</tr>
+<tr>
+<td>disable</td>
+<td>disable</td>
+<td>禁用某个断点</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>del</td>
+<td>删除断点</td>
+</tr>
+<tr>
+<td>list</td>
+<td>l</td>
+<td>显示源码</td>
+</tr>
+<tr>
+<td>print</td>
+<td>p</td>
+<td>打印或修改变量、寄存器的值</td>
+</tr>
+<tr>
+<td>ptype</td>
+<td>ptype</td>
+<td>查看变量的类型</td>
+</tr>
+<tr>
+<td>thread</td>
+<td>thread</td>
+<td>切换到指定的线程</td>
+</tr>
+<tr>
+<td>next</td>
+<td>n</td>
+<td>运行到下一行</td>
+</tr>
+<tr>
+<td>step</td>
+<td>s</td>
+<td>如果有调用函数则进入调用的函数内部，相当于step into</td>
+</tr>
+<tr>
+<td>until</td>
+<td>u</td>
+<td>运行到指定行停下来</td>
+</tr>
+<tr>
+<td>finsih</td>
+<td>fi</td>
+<td>结束当前调用函数，到上一层函数调用处</td>
+</tr>
+<tr>
+<td>return</td>
+<td>return</td>
+<td>结束当前调用函数并返回指定的值，到上一层函数调用处</td>
+</tr>
+<tr>
+<td>jump</td>
+<td>j</td>
+<td>将当前程序的执行流跳转到指定的行或地址</td>
+</tr>
+<tr>
+<td>disassemble</td>
+<td>dis</td>
+<td>查看汇编代码</td>
+</tr>
+<tr>
+<td>set args</td>
+<td></td>
+<td>设置程序启动命令行参数</td>
+</tr>
+<tr>
+<td>show args</td>
+<td></td>
+<td>查看设置的命令行参数</td>
+</tr>
+<tr>
+<td>watch</td>
+<td>watch</td>
+<td>监视某个变量或内存地址的值是否发生了变化</td>
+</tr>
+<tr>
+<td>display</td>
+<td>display</td>
+<td>监视的变量或者内存地址，在程序中断后自动输出监控的变量或内存地址</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>dir</td>
+<td>重定向源码文件的位置</td>
+</tr>
+</tbody></table>
 <ul>
 <li><strong>gdb调试Redis准备工作</strong></li>
 </ul>
 <p>下载redis源码</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47087ef3-5345-4dd6-b931-678d77db4a17/12.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47087ef3-5345-4dd6-b931-678d77db4a17/12.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\12.png" alt="12"></p>
 <p>解压</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf redis<span class="number">-6.0</span><span class="number">.3</span>.tar.gz</span><br></pre></td></tr></table></figure>
 
 <p>进入redis-6.0.3目录并使用makefile进行编译，为了方便调试，需要生成调试符号并关闭编译器优化选项。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd redis<span class="number">-6.0</span><span class="number">.3</span></span><br><span class="line">make CFLAGS=<span class="string">&quot;-g -O0&quot;</span> -j <span class="number">4</span></span><br><span class="line"><span class="comment">//-g表示生成调试符号</span></span><br><span class="line"><span class="comment">//-o0选项表示关闭优化</span></span><br><span class="line"><span class="comment">//-j 4表示同时开启4给进程进行编译</span></span><br><span class="line"><span class="comment">//CFLAGS编译器是gcc，对应C项目           CXXFLAGS编译器是g++，对应C++项目</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11cb4290-c009-43c1-8caa-6cb961462fa8/1.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11cb4290-c009-43c1-8caa-6cb961462fa8/1.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\1.png" alt="1"></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc CFLAGS=<span class="string">&quot;-g -O0&quot;</span> -j <span class="number">4</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d0c8bbf-53d1-422c-a586-f1389ff5a494/2.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d0c8bbf-53d1-422c-a586-f1389ff5a494/2.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\2.png" alt="2"></p>
 <p>进入src目录，利用gdb启动redis-server</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb redis-server</span><br></pre></td></tr></table></figure>
 
@@ -173,14 +317,14 @@
 <li><strong>run命令</strong></li>
 </ul>
 <p>输入run可运行程序</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c0049ff-4c9b-4f83-bb5c-c5fd11a995ed/3.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c0049ff-4c9b-4f83-bb5c-c5fd11a995ed/3.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\3.png" alt="3"></p>
 <p>Ctrl + C可以中断，再次输入r会提示是否重启，输入y确认重启。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3d4764a-b920-4391-81d0-a1750b62f4b8/4.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3d4764a-b920-4391-81d0-a1750b62f4b8/4.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\4.png" alt="4"></p>
 <ul>
 <li><strong>continue命令</strong></li>
 </ul>
 <p>Ctrl+C中断后，可利用continue让程序继续运行</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51b703dd-484d-46a5-af73-cb4c6a12a78d/5.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51b703dd-484d-46a5-af73-cb4c6a12a78d/5.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\5.png" alt="5"></p>
 <ul>
 <li><strong>break命令</strong></li>
 </ul>
@@ -188,86 +332,89 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在functionname函数入口处添加一个断点</span></span><br><span class="line"><span class="keyword">break</span> functionname</span><br><span class="line"><span class="comment">//在当前文件行号为LineNo的地方添加一个断点</span></span><br><span class="line"><span class="keyword">break</span> LineNo</span><br><span class="line"><span class="comment">//在filename文件行号为LineNo的地方添加一个断点</span></span><br><span class="line"><span class="keyword">break</span> filename:LineNo</span><br></pre></td></tr></table></figure>
 
 <p>利用main函数名称设置断点：</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b220803-9825-4971-a9b5-832d4e59a05a/6.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b220803-9825-4971-a9b5-832d4e59a05a/6.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\6.png" alt="6"></p>
 <p>利用vim命令模式的指令，set number 和/bind + n 组合查找bind函数</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea45bbea-7f8d-4507-b013-3640eeb1ed7f/7.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea45bbea-7f8d-4507-b013-3640eeb1ed7f/7.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\7.png" alt="7"></p>
 <p>将断点打到455行</p>
+<p><img src="/.com//Tools\hexo\TmpPicture\8.png" alt="8"></p>
 <p>利用<strong>run指令</strong>重启程序，会在main函数触发第一次断点，输入continue触发刚设置的第二个断点。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92dc1acc-c37c-49e3-87ba-f11412461a61/9.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92dc1acc-c37c-49e3-87ba-f11412461a61/9.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\9.png" alt="9"></p>
 <p>程序现在停到了anet.c的455行，通过list查看源码，将return语句设置成断定，看函数执行完毕后走到哪个return语句退出。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2c7ca9a2-c325-4f94-ab58-381b51df799d/10.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2c7ca9a2-c325-4f94-ab58-381b51df799d/10.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\10.png" alt="10"></p>
 <p>利用<strong>continue命令</strong>继续运行程序</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/443a0db0-1303-4d42-9a39-518947a5c32e/11.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/443a0db0-1303-4d42-9a39-518947a5c32e/11.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\11.png" alt="11"></p>
 <p>程序执行到了466行，可以发现程序bind和listen均已调用成功。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9322313c-92e7-49d1-8774-2d0a2f702a6b/12.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9322313c-92e7-49d1-8774-2d0a2f702a6b/12.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\12.png" alt="12"></p>
 <p>可以看到redis-server的6739端口已经成功开启了监听。</p>
 <ul>
 <li><strong>tbreak命令</strong></li>
 </ul>
 <p>threak相当于添加了一个临时断点，该断点一旦触发就会被自动删除。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a19e810c-b17a-47f7-a6ab-3d532fca33c0/13.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a19e810c-b17a-47f7-a6ab-3d532fca33c0/13.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\13.png" alt="13"></p>
 <p>利用<strong>threak命令</strong>在main函数处添加了一个临时断点，第一次run命令触发断点后，再次重新运行程序，不再触发断点。</p>
 <ul>
 <li><strong>backtrace与frame命令</strong></li>
 </ul>
 <p><strong>backtrace指令</strong>用于查看当前所在线程的调用堆栈。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a86414f6-6c8d-4031-8003-a420846fc94d/14.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a86414f6-6c8d-4031-8003-a420846fc94d/14.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\14.png" alt="14"></p>
 <p>当程序中断在anet.c文件第466行时，通过backtrace命令查看当前的调用堆栈，发现一共有6层堆栈，编号为#0~#5，顶层是main函数，底层是anetListen函数。</p>
 <p>frame命令可以切换到其他堆栈处，frame 堆栈编号（编号不加#）</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/83f5e9e2-ea67-4068-b39e-ccfcd8464a1e/15.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/83f5e9e2-ea67-4068-b39e-ccfcd8464a1e/15.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\15.png" alt="15"></p>
 <p>利用<strong>frame命令</strong>一次切换堆栈可以发现其中的层级关系，最上层main函数在5128行调用了initServer函数，initServer在2792行调用了listenToPort函数，listenToPort在2648行调用了anetTcp6Server函数，anetTcp6Server函数在524行调用了_anetTcpServer函数，_anetTcpServer函数在501行调用了anetListen函数，当前断点正好位于anetListen函数中。</p>
 <ul>
 <li><strong>info break、enable、disable、delete命令</strong></li>
 </ul>
 <p><strong>info break命令</strong>可以查看加了有那些断点</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6551ed03-a6aa-4720-b2b9-1196737f3b72/16.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6551ed03-a6aa-4720-b2b9-1196737f3b72/16.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\16.png" alt="16"></p>
 <p><strong>disable 断点编号</strong> 能够禁用这个断点， <strong>enable 断点编号</strong> 能够使断点重新开启，不加编号时代表全部断点</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/386a38a0-94aa-415a-a1e0-c9671492177a/17.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/386a38a0-94aa-415a-a1e0-c9671492177a/17.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\17.png" alt="17"></p>
 <p><strong>delete 断点编号</strong> 可以删除某断点，不加编号时代表全部断点。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd028076-9d19-402d-991d-56127397c605/18.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd028076-9d19-402d-991d-56127397c605/18.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\18.png" alt="18"></p>
 <ul>
 <li><strong>list命令</strong></li>
 </ul>
 <p>list命令可以查看断点附件的10行代码，list+向下10行，list-向上10行</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/35a3b508-fb14-4401-ad2d-918da13ef6b1/19.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/35a3b508-fb14-4401-ad2d-918da13ef6b1/19.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\19.png" alt="19"></p>
 <ul>
 <li><strong>print与ptype</strong></li>
 </ul>
 <p>print命令可以在调试过程中查看变量的值，也可以修改当前内存中的变量值。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43a7770e-22aa-40a2-9cd7-51838eaa40b7/20.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43a7770e-22aa-40a2-9cd7-51838eaa40b7/20.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\20.png" alt="20"></p>
 <p>切换到堆栈4后，分别打印了server.port、server.ipfd、server.ipfd_count的值。其中，server.ipfd显示{0&lt;repeats 16 times&gt;}，这是gdb显示字符串和字符数组的特有方式，当一个字符串变量、字符数组或者连续的内存值重复若干次时，gdb就会以这种模式显示，以解决显示空间。</p>
 <p>print可以输出多种类型的值，比如print &amp;server.port输出server.port的地址；打印多个变量的相加值；print func()输出该变量的执行结果；某一时刻的错误码也可以利用print strerror(errno)将错误信息打印出来</p>
 <p>print也可以修改变量的值</p>
+<p><img src="/.com//Tools\hexo\TmpPicture\21.png" alt="21"></p>
 <p><strong>ptype命令</strong>可以输出一个变量的类型。</p>
+<p><img src="/.com//Tools\hexo\TmpPicture\22.png" alt="22"></p>
 <p>server变量是个结构体，并且详细罗列了每个成员的变量类型和字段名。</p>
 <ul>
 <li><strong>info与thread命令</strong></li>
 </ul>
 <p><strong>info命令</strong>可以用来查询当前进程中所有线程的运行情况</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e75bca4a-ace1-4bcf-90a4-ff21ddc3cabe/23.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e75bca4a-ace1-4bcf-90a4-ff21ddc3cabe/23.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\23.png" alt="23"></p>
 <p>redis-server正常启动后一共产生了4个线程，1个主线程3个工作线程。2、3、4线程分别阻塞在futex_wait_cancelable处，主线程1阻塞在epoll_wait处。前面的*号代表gdb当前作用于哪个线程。 <strong>thread 编号</strong> 可以切换到指定线程</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0127cca-df37-4b83-b297-428b9c65aaa3/24.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0127cca-df37-4b83-b297-428b9c65aaa3/24.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\24.png" alt="24"></p>
 <p><strong>info args命令</strong>可以用来查看当前函数的参数值</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42b1982f-5c8c-4a35-ab86-4bc0b42288c8/25.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42b1982f-5c8c-4a35-ab86-4bc0b42288c8/25.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\25.png" alt="25"></p>
 <p>先切回了主线程1，然后再回到堆栈2，堆栈2调用的函数是aeProcessEvents，这个函数有两个参数，分别是eventLoop和tvp，使用info args可以查看这两个函数的值，ebentLoop里存的是个地址，用print 解地址符打印</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/500a37bb-8141-47cf-a1e4-1a3483f3096e/26.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/500a37bb-8141-47cf-a1e4-1a3483f3096e/26.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\26.png" alt="26"></p>
 <ul>
 <li><strong>next、step、until、finish、return、jump命令</strong></li>
 </ul>
 <p>next命令可以让程序跳到下一行</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a1bb1539-5e08-4c4c-9c62-da9b0373592d/27.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a1bb1539-5e08-4c4c-9c62-da9b0373592d/27.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\27.png" alt="27"></p>
 <p>gdb命令行界面直接回车会默认执行最近的一条指令，因此输入next指令后按回车就可以一直执行next命令。</p>
 <p><strong>step命令</strong>可以进入函数内部。</p>
 <p><strong>finsh命令</strong>用于执行完整的函数体，然后正常返回上一层的调用中。</p>
 <p><strong>return命令</strong>则在当前函数还有剩余代码未执行完毕时也不会再执行了。</p>
 <p><strong>until命令</strong>可以让程序运行到指定的行停下来。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/008bd69d-74f7-4066-b45f-2aa141e0077f/29.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/008bd69d-74f7-4066-b45f-2aa141e0077f/29.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\29.png" alt="29"></p>
 <p><strong>jump命令</strong> 会让程序执行流跳转到指定的位置执行</p>
 <ul>
 <li><strong>disassemble命令</strong></li>
 </ul>
 <p><strong>disassemble命令</strong> 会输出当前函数的汇编指令。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eeb97369-a47a-4bbf-ae7b-c17b820d8056/30.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eeb97369-a47a-4bbf-ae7b-c17b820d8056/30.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\30.png" alt="30"></p>
 <ul>
 <li><strong>watch命令</strong></li>
 </ul>
@@ -285,8 +432,9 @@
 <li><strong>display命令</strong></li>
 </ul>
 <p><strong>dislpay命令</strong> 用于监视变量或者内存的值，每次gdb中断都会自动输出被监视变量或内存的值。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc17de5-3962-4291-8c2a-8bbf13e7a3b2/31.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc17de5-3962-4291-8c2a-8bbf13e7a3b2/31.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\31.png" alt="31"></p>
 <p><strong>info dislpay</strong> 查看当前已经监视了哪些值， <strong>delete display</strong> 清除全部被监视的变量， <strong>delete display 编号</strong> 移除对指定变量的监视。</p>
+<p><img src="/.com//Tools\hexo\TmpPicture\32.png" alt="32"></p>
 <ul>
 <li><strong>dir命令</strong></li>
 </ul>
@@ -298,17 +446,17 @@
 <li><strong>调试多线程程序的方法</strong></li>
 </ul>
 <p>利用 <strong>info threads命令</strong> 查看当前进程有多少线程:</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/73f70e1b-b1dc-40cb-a3ad-c8a1c089f725/33.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/73f70e1b-b1dc-40cb-a3ad-c8a1c089f725/33.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\33.png" alt="33"></p>
 <p>使用 <strong>thread 线程编号</strong> 可以切换到对应的线程，任何使用backtrace命令查看对应的线程从顶层到底层的函数调用，然后再利用 <strong>frame 编号</strong> 切换到当前函数调用堆栈的任何一层函数调用中，最终利用print或单步调试了解函数大致逻辑。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5adb708-65b4-44ac-bf76-843926db7675/34.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5adb708-65b4-44ac-bf76-843926db7675/34.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\34.png" alt="34"></p>
 <p>可以看到顶层是main函数，说明1号线程是程序的主线程，通过main往下各个函数调用对应的源码位置，可以学习研究调用处的逻辑。</p>
 <p>切换到2线程</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc991159-c98c-4573-ac41-2d15cd4f008b/35.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc991159-c98c-4573-ac41-2d15cd4f008b/35.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\35.png" alt="35"></p>
 <p>clone和start_thread是系统函数，则bioProcessBackgroundjobs是2号线程的线程函数</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/193954df-1447-41c9-927d-e4ecee7faefb/36.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/193954df-1447-41c9-927d-e4ecee7faefb/36.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\36.png" alt="36"></p>
 <p>通过vim查找bioProcessBackgroundJobs发现函数在bioInit中被调用，</p>
 <p>给biolnit打上断点并查看堆栈</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fad81d6-2be6-47c9-9987-d46c8f08583c/37.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fad81d6-2be6-47c9-9987-d46c8f08583c/37.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\37.png" alt="37"></p>
 <p>2号线程在main函数中调用了InitServerLast函数，然后调用了bioInit，根据上面的分析，在biolnit中又创建了新的线程bioProcessBackgroundJobs。</p>
 <h2 id="使用gdb调试多进程程序"><a href="#使用gdb调试多进程程序" class="headerlink" title="使用gdb调试多进程程序"></a>使用gdb调试多进程程序</h2><p>多进程程序是指一个进程使用Linux系统调用fork函数产生的子进程。</p>
 <ul>
@@ -321,22 +469,22 @@
 <p>启动Nginx：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/sbin</span><br><span class="line">./nginx -c /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf</span><br><span class="line">lsof -i -Pn | grep nginx</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c7d0806-7252-4e55-9b90-996e0a10cc36/38.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c7d0806-7252-4e55-9b90-996e0a10cc36/38.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\38.png" alt="38"></p>
 <p>Nginx默认开启了两个进程，如图主进程号是2188，子进程号是2189。attach到主进程。</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/262fc062-ae08-4375-a80e-3442c8c54ea4/39.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/262fc062-ae08-4375-a80e-3442c8c54ea4/39.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\39.png" alt="39"></p>
 <p>利用backtrace查看堆栈</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09adc3dd-2440-485e-bdec-ea40673e216c/40.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09adc3dd-2440-485e-bdec-ea40673e216c/40.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\40.png" alt="40"></p>
 <p>frame 1切换到调用堆栈#1，Nginx的父进程挂起在src/os/unix/ngx_process_cycle.c:164</p>
 <p>使用continue使程序继续运行，再开个窗口连接子线程</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a28b519-b35f-48bf-a710-e9b500fbc412/41.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a28b519-b35f-48bf-a710-e9b500fbc412/41.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\41.png" alt="41"></p>
 <p>利用backtrace查看堆栈</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06c10d1f-60d9-458c-bee7-358efe96af31/42.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06c10d1f-60d9-458c-bee7-358efe96af31/42.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\42.png" alt="42"></p>
 <p>子进程挂起在src/event/modules/ngx_epoll_moddule.c:800的epoll_wait函数处，在epoll_wait函数返回后加一个断点，然后使用continue命令让Nginx子进程继续运行，接着在浏览器访问Nginx网站（IP:80)</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f0309b01-341b-48b4-9088-e202abfd00d5/43.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f0309b01-341b-48b4-9088-e202abfd00d5/43.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\43.png" alt="43"></p>
 <p>回到调试界面发现断点被触发，backtrace查看当前调用堆栈</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a1438c2-4ec8-4317-ad7d-448adebea084/44.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a1438c2-4ec8-4317-ad7d-448adebea084/44.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\44.png" alt="44"></p>
 <p>使用info threads查看子进程的所有线程信息，发现Nginx只有一个主线程</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1e08b446-2d11-427f-a207-eb60b62fd2b6/45.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1e08b446-2d11-427f-a207-eb60b62fd2b6/45.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\45.png" alt="45"></p>
 <p>Nginx父进程不处理客户端的请求，处理客户端请求的逻辑在子进程中，当单个子进程的客户端请求数达到一定数量时，父进程会重新fork一个新的子进程来处理客户端的请求，也就是说子进程可以有多个。</p>
 <ul>
 <li><strong>方法2</strong></li>
@@ -344,13 +492,13 @@
 <p>gdb调试器提供了一个follow-fork选项，通过set follow-fork mode设置一个进程fork出新的子进程，gdb是继续调试父进程（取值parent）还是继续调试子进程（取值child）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> follow-fork child</span><br><span class="line"><span class="built_in">set</span> follow-fork parent</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7a7b3c5-cc9f-4bb0-83e2-1c3c7eb9dc78/46.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7a7b3c5-cc9f-4bb0-83e2-1c3c7eb9dc78/46.png"></p>
+<p><img src="/.com//Tools\hexo\TmpPicture\46.png" alt="46"></p>
 <p>利用set follow-fork child切换到子进程重新执行run命令和backtrace命令发现gdb确实attach进了子进程。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/" data-id="ckri2dm4g000158va6mkn7qqp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/" data-id="ckri3ti720001j4vadn3bev89" class="article-share-link">Share</a>
       
       
     </footer>
