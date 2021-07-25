@@ -10,65 +10,65 @@
   <meta name="description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法 直接调用目标程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="必备工具与调试知识">
-<meta property="og:url" content="https://github.com/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:url" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="makefile与CMake一般使用makefile文件组织大型C&#x2F;C++或者含有多个C&#x2F;C++文件的项目，有人认为makefile不太方便，于是发明了CMake。CMake将含有CMake指令的文件生成makefile文件，含有CMkae指令的文件的名称一般是CMakeLists.txt，使用CMake是在实际开发中组织和管理C&#x2F;C++项目的常用方式。  gdb调试gdb调试方法 直接调用目标程">
 <meta property="og:locale">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/49.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/48.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/47.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/1.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/2.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/3.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/4.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/5.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/6.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/7.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/8.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/9.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/10.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/11.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/12.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/13.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/14.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/15.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/16.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/17.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/18.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/19.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/20.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/21.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/22.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/23.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/24.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/25.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/26.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/27.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/29.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/30.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/31.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/32.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/33.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/34.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/35.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/36.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/37.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/38.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/39.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/40.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/41.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/42.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/43.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/44.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/45.png">
-<meta property="og:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/46.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/49.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/48.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/47.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/1.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/2.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/3.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/4.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/5.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/6.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/7.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/8.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/9.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/10.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/11.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/12.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/13.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/14.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/15.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/16.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/17.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/18.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/19.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/20.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/21.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/22.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/23.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/24.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/25.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/26.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/27.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/29.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/30.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/31.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/32.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/33.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/34.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/35.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/36.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/37.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/38.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/39.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/40.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/41.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/42.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/43.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/44.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/45.png">
+<meta property="og:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/46.png">
 <meta property="article:published_time" content="2021-07-24T17:44:46.000Z">
 <meta property="article:modified_time" content="2021-07-25T03:54:11.162Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/49.png">
+<meta name="twitter:image" content="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools/hexo/fudiyangjin/source_posts/必备工具与调试知识/49.png">
   
-    <link rel="alternate" href="/fudiyangjin/fudiyangjin.github.io/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -77,7 +77,7 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
-<link rel="stylesheet" href="/fudiyangjin/fudiyangjin.github.io/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -89,7 +89,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/fudiyangjin/fudiyangjin.github.io/" id="logo">Hexo</a>
+        <a href="/" id="logo">Hexo</a>
       </h1>
       
     </div>
@@ -97,19 +97,19 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/fudiyangjin/fudiyangjin.github.io/">Home</a>
+          <a class="main-nav-link" href="/">Home</a>
         
-          <a class="main-nav-link" href="/fudiyangjin/fudiyangjin.github.io/archives">Archives</a>
+          <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/fudiyangjin/fudiyangjin.github.io/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/fudiyangjin/fudiyangjin.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://fudiyangjin.github.io"></form>
       </div>
     </div>
   </div>
@@ -117,7 +117,7 @@
       <div class="outer">
         <section id="main"><article id="post-必备工具与调试知识" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/" class="article-date">
+    <a href="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/" class="article-date">
   <time datetime="2021-07-24T17:44:46.000Z" itemprop="datePublished">2021-07-25</time>
 </a>
     
@@ -149,9 +149,9 @@
 </ul>
 <p>当一个程序已经启动，但又不想重启这个程序时，可以利用gdb attach程序的进程ID将gdb调试器attach到正在启动的程序上。</p>
 <p>首先利用ps查看PID号</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\49.png" alt="49"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\49.png" alt="49"></p>
 <p>发现刚才挂载到后台的Main程序正在运行，并且PID号为22101，利用gdb attach 22101把gdb attach到Main的进程上。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\48.png" alt="48"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\48.png" alt="48"></p>
 <p>会有很多无关的信息，其中注意到显示   Attaching to process 22101  这代表已经连入目标进程中了。</p>
 <h2 id="利用gdb调试Redis"><a href="#利用gdb调试Redis" class="headerlink" title="利用gdb调试Redis"></a>利用gdb调试Redis</h2><ul>
 <li><strong>gdb常用调试命令概览和说明</strong></li>
@@ -299,17 +299,17 @@
 <li><strong>gdb调试Redis准备工作</strong></li>
 </ul>
 <p>下载redis源码</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\47.png" alt="47"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\47.png" alt="47"></p>
 <p>解压</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf redis<span class="number">-6.0</span><span class="number">.3</span>.tar.gz</span><br></pre></td></tr></table></figure>
 
 <p>进入redis-6.0.3目录并使用makefile进行编译，为了方便调试，需要生成调试符号并关闭编译器优化选项。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd redis<span class="number">-6.0</span><span class="number">.3</span></span><br><span class="line">make CFLAGS=<span class="string">&quot;-g -O0&quot;</span> -j <span class="number">4</span></span><br><span class="line"><span class="comment">//-g表示生成调试符号</span></span><br><span class="line"><span class="comment">//-o0选项表示关闭优化</span></span><br><span class="line"><span class="comment">//-j 4表示同时开启4给进程进行编译</span></span><br><span class="line"><span class="comment">//CFLAGS编译器是gcc，对应C项目           CXXFLAGS编译器是g++，对应C++项目</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\1.png" alt="1"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\1.png" alt="1"></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc CFLAGS=<span class="string">&quot;-g -O0&quot;</span> -j <span class="number">4</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\2.png" alt="2"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\2.png" alt="2"></p>
 <p>进入src目录，利用gdb启动redis-server</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb redis-server</span><br></pre></td></tr></table></figure>
 
@@ -317,14 +317,14 @@
 <li><strong>run命令</strong></li>
 </ul>
 <p>输入run可运行程序</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\3.png" alt="3"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\3.png" alt="3"></p>
 <p>Ctrl + C可以中断，再次输入r会提示是否重启，输入y确认重启。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\4.png" alt="4"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\4.png" alt="4"></p>
 <ul>
 <li><strong>continue命令</strong></li>
 </ul>
 <p>Ctrl+C中断后，可利用continue让程序继续运行</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\5.png" alt="5"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\5.png" alt="5"></p>
 <ul>
 <li><strong>break命令</strong></li>
 </ul>
@@ -332,89 +332,89 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在functionname函数入口处添加一个断点</span></span><br><span class="line"><span class="keyword">break</span> functionname</span><br><span class="line"><span class="comment">//在当前文件行号为LineNo的地方添加一个断点</span></span><br><span class="line"><span class="keyword">break</span> LineNo</span><br><span class="line"><span class="comment">//在filename文件行号为LineNo的地方添加一个断点</span></span><br><span class="line"><span class="keyword">break</span> filename:LineNo</span><br></pre></td></tr></table></figure>
 
 <p>利用main函数名称设置断点：</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\6.png" alt="6"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\6.png" alt="6"></p>
 <p>利用vim命令模式的指令，set number 和/bind + n 组合查找bind函数</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\7.png" alt="7"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\7.png" alt="7"></p>
 <p>将断点打到455行</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\8.png" alt="8"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\8.png" alt="8"></p>
 <p>利用<strong>run指令</strong>重启程序，会在main函数触发第一次断点，输入continue触发刚设置的第二个断点。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\9.png" alt="9"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\9.png" alt="9"></p>
 <p>程序现在停到了anet.c的455行，通过list查看源码，将return语句设置成断定，看函数执行完毕后走到哪个return语句退出。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\10.png" alt="10"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\10.png" alt="10"></p>
 <p>利用<strong>continue命令</strong>继续运行程序</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\11.png" alt="11"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\11.png" alt="11"></p>
 <p>程序执行到了466行，可以发现程序bind和listen均已调用成功。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\12.png" alt="12"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\12.png" alt="12"></p>
 <p>可以看到redis-server的6739端口已经成功开启了监听。</p>
 <ul>
 <li><strong>tbreak命令</strong></li>
 </ul>
 <p>threak相当于添加了一个临时断点，该断点一旦触发就会被自动删除。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\13.png" alt="13"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\13.png" alt="13"></p>
 <p>利用<strong>threak命令</strong>在main函数处添加了一个临时断点，第一次run命令触发断点后，再次重新运行程序，不再触发断点。</p>
 <ul>
 <li><strong>backtrace与frame命令</strong></li>
 </ul>
 <p><strong>backtrace指令</strong>用于查看当前所在线程的调用堆栈。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\14.png" alt="14"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\14.png" alt="14"></p>
 <p>当程序中断在anet.c文件第466行时，通过backtrace命令查看当前的调用堆栈，发现一共有6层堆栈，编号为#0~#5，顶层是main函数，底层是anetListen函数。</p>
 <p>frame命令可以切换到其他堆栈处，frame 堆栈编号（编号不加#）</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\15.png" alt="15"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\15.png" alt="15"></p>
 <p>利用<strong>frame命令</strong>一次切换堆栈可以发现其中的层级关系，最上层main函数在5128行调用了initServer函数，initServer在2792行调用了listenToPort函数，listenToPort在2648行调用了anetTcp6Server函数，anetTcp6Server函数在524行调用了_anetTcpServer函数，_anetTcpServer函数在501行调用了anetListen函数，当前断点正好位于anetListen函数中。</p>
 <ul>
 <li><strong>info break、enable、disable、delete命令</strong></li>
 </ul>
 <p><strong>info break命令</strong>可以查看加了有那些断点</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\16.png" alt="16"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\16.png" alt="16"></p>
 <p><strong>disable 断点编号</strong> 能够禁用这个断点， <strong>enable 断点编号</strong> 能够使断点重新开启，不加编号时代表全部断点</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\17.png" alt="17"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\17.png" alt="17"></p>
 <p><strong>delete 断点编号</strong> 可以删除某断点，不加编号时代表全部断点。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\18.png" alt="18"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\18.png" alt="18"></p>
 <ul>
 <li><strong>list命令</strong></li>
 </ul>
 <p>list命令可以查看断点附件的10行代码，list+向下10行，list-向上10行</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\19.png" alt="19"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\19.png" alt="19"></p>
 <ul>
 <li><strong>print与ptype</strong></li>
 </ul>
 <p>print命令可以在调试过程中查看变量的值，也可以修改当前内存中的变量值。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\20.png" alt="20"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\20.png" alt="20"></p>
 <p>切换到堆栈4后，分别打印了server.port、server.ipfd、server.ipfd_count的值。其中，server.ipfd显示{0&lt;repeats 16 times&gt;}，这是gdb显示字符串和字符数组的特有方式，当一个字符串变量、字符数组或者连续的内存值重复若干次时，gdb就会以这种模式显示，以解决显示空间。</p>
 <p>print可以输出多种类型的值，比如print &amp;server.port输出server.port的地址；打印多个变量的相加值；print func()输出该变量的执行结果；某一时刻的错误码也可以利用print strerror(errno)将错误信息打印出来</p>
 <p>print也可以修改变量的值</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\21.png" alt="21"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\21.png" alt="21"></p>
 <p><strong>ptype命令</strong>可以输出一个变量的类型。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\22.png" alt="22"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\22.png" alt="22"></p>
 <p>server变量是个结构体，并且详细罗列了每个成员的变量类型和字段名。</p>
 <ul>
 <li><strong>info与thread命令</strong></li>
 </ul>
 <p><strong>info命令</strong>可以用来查询当前进程中所有线程的运行情况</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\23.png" alt="23"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\23.png" alt="23"></p>
 <p>redis-server正常启动后一共产生了4个线程，1个主线程3个工作线程。2、3、4线程分别阻塞在futex_wait_cancelable处，主线程1阻塞在epoll_wait处。前面的*号代表gdb当前作用于哪个线程。 <strong>thread 编号</strong> 可以切换到指定线程</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\24.png" alt="24"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\24.png" alt="24"></p>
 <p><strong>info args命令</strong>可以用来查看当前函数的参数值</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\25.png" alt="25"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\25.png" alt="25"></p>
 <p>先切回了主线程1，然后再回到堆栈2，堆栈2调用的函数是aeProcessEvents，这个函数有两个参数，分别是eventLoop和tvp，使用info args可以查看这两个函数的值，ebentLoop里存的是个地址，用print 解地址符打印</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\26.png" alt="26"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\26.png" alt="26"></p>
 <ul>
 <li><strong>next、step、until、finish、return、jump命令</strong></li>
 </ul>
 <p>next命令可以让程序跳到下一行</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\27.png" alt="27"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\27.png" alt="27"></p>
 <p>gdb命令行界面直接回车会默认执行最近的一条指令，因此输入next指令后按回车就可以一直执行next命令。</p>
 <p><strong>step命令</strong>可以进入函数内部。</p>
 <p><strong>finsh命令</strong>用于执行完整的函数体，然后正常返回上一层的调用中。</p>
 <p><strong>return命令</strong>则在当前函数还有剩余代码未执行完毕时也不会再执行了。</p>
 <p><strong>until命令</strong>可以让程序运行到指定的行停下来。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\29.png" alt="29"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\29.png" alt="29"></p>
 <p><strong>jump命令</strong> 会让程序执行流跳转到指定的位置执行</p>
 <ul>
 <li><strong>disassemble命令</strong></li>
 </ul>
 <p><strong>disassemble命令</strong> 会输出当前函数的汇编指令。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\30.png" alt="30"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\30.png" alt="30"></p>
 <ul>
 <li><strong>watch命令</strong></li>
 </ul>
@@ -432,9 +432,9 @@
 <li><strong>display命令</strong></li>
 </ul>
 <p><strong>dislpay命令</strong> 用于监视变量或者内存的值，每次gdb中断都会自动输出被监视变量或内存的值。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\31.png" alt="31"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\31.png" alt="31"></p>
 <p><strong>info dislpay</strong> 查看当前已经监视了哪些值， <strong>delete display</strong> 清除全部被监视的变量， <strong>delete display 编号</strong> 移除对指定变量的监视。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\32.png" alt="32"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\32.png" alt="32"></p>
 <ul>
 <li><strong>dir命令</strong></li>
 </ul>
@@ -446,17 +446,17 @@
 <li><strong>调试多线程程序的方法</strong></li>
 </ul>
 <p>利用 <strong>info threads命令</strong> 查看当前进程有多少线程:</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\33.png" alt="33"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\33.png" alt="33"></p>
 <p>使用 <strong>thread 线程编号</strong> 可以切换到对应的线程，任何使用backtrace命令查看对应的线程从顶层到底层的函数调用，然后再利用 <strong>frame 编号</strong> 切换到当前函数调用堆栈的任何一层函数调用中，最终利用print或单步调试了解函数大致逻辑。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\34.png" alt="34"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\34.png" alt="34"></p>
 <p>可以看到顶层是main函数，说明1号线程是程序的主线程，通过main往下各个函数调用对应的源码位置，可以学习研究调用处的逻辑。</p>
 <p>切换到2线程</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\35.png" alt="35"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\35.png" alt="35"></p>
 <p>clone和start_thread是系统函数，则bioProcessBackgroundjobs是2号线程的线程函数</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\36.png" alt="36"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\36.png" alt="36"></p>
 <p>通过vim查找bioProcessBackgroundJobs发现函数在bioInit中被调用，</p>
 <p>给biolnit打上断点并查看堆栈</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\37.png" alt="37"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\37.png" alt="37"></p>
 <p>2号线程在main函数中调用了InitServerLast函数，然后调用了bioInit，根据上面的分析，在biolnit中又创建了新的线程bioProcessBackgroundJobs。</p>
 <h2 id="使用gdb调试多进程程序"><a href="#使用gdb调试多进程程序" class="headerlink" title="使用gdb调试多进程程序"></a>使用gdb调试多进程程序</h2><p>多进程程序是指一个进程使用Linux系统调用fork函数产生的子进程。</p>
 <ul>
@@ -469,22 +469,22 @@
 <p>启动Nginx：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/sbin</span><br><span class="line">./nginx -c /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf</span><br><span class="line">lsof -i -Pn | grep nginx</span><br></pre></td></tr></table></figure>
 
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\38.png" alt="38"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\38.png" alt="38"></p>
 <p>Nginx默认开启了两个进程，如图主进程号是2188，子进程号是2189。attach到主进程。</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\39.png" alt="39"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\39.png" alt="39"></p>
 <p>利用backtrace查看堆栈</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\40.png" alt="40"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\40.png" alt="40"></p>
 <p>frame 1切换到调用堆栈#1，Nginx的父进程挂起在src/os/unix/ngx_process_cycle.c:164</p>
 <p>使用continue使程序继续运行，再开个窗口连接子线程</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\41.png" alt="41"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\41.png" alt="41"></p>
 <p>利用backtrace查看堆栈</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\42.png" alt="42"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\42.png" alt="42"></p>
 <p>子进程挂起在src/event/modules/ngx_epoll_moddule.c:800的epoll_wait函数处，在epoll_wait函数返回后加一个断点，然后使用continue命令让Nginx子进程继续运行，接着在浏览器访问Nginx网站（IP:80)</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\43.png" alt="43"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\43.png" alt="43"></p>
 <p>回到调试界面发现断点被触发，backtrace查看当前调用堆栈</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\44.png" alt="44"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\44.png" alt="44"></p>
 <p>使用info threads查看子进程的所有线程信息，发现Nginx只有一个主线程</p>
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\45.png" alt="45"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\45.png" alt="45"></p>
 <p>Nginx父进程不处理客户端的请求，处理客户端请求的逻辑在子进程中，当单个子进程的客户端请求数达到一定数量时，父进程会重新fork一个新的子进程来处理客户端的请求，也就是说子进程可以有多个。</p>
 <ul>
 <li><strong>方法2</strong></li>
@@ -492,13 +492,13 @@
 <p>gdb调试器提供了一个follow-fork选项，通过set follow-fork mode设置一个进程fork出新的子进程，gdb是继续调试父进程（取值parent）还是继续调试子进程（取值child）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> follow-fork child</span><br><span class="line"><span class="built_in">set</span> follow-fork parent</span><br></pre></td></tr></table></figure>
 
-<p><img src="/fudiyangjin/fudiyangjin.github.io/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\46.png" alt="46"></p>
+<p><img src="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/Tools\hexo\fudiyangjin\source_posts\必备工具与调试知识\46.png" alt="46"></p>
 <p>利用set follow-fork child切换到子进程重新执行run命令和backtrace命令发现gdb确实attach进了子进程。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/" data-id="ckrip426800010kvag2ykgo03" class="article-share-link">Share</a>
+      <a data-url="https://fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/" data-id="ckriqauue0001d4va1hqjecw2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -508,7 +508,7 @@
 <nav id="article-nav">
   
   
-    <a href="/fudiyangjin/fudiyangjin.github.io/2021/07/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/07/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
@@ -534,7 +534,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/fudiyangjin/fudiyangjin.github.io/archives/2021/07/">July 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
     </div>
   </div>
 
@@ -547,11 +547,11 @@
       <ul>
         
           <li>
-            <a href="/fudiyangjin/fudiyangjin.github.io/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/">必备工具与调试知识</a>
+            <a href="/2021/07/25/%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86/">必备工具与调试知识</a>
           </li>
         
           <li>
-            <a href="/fudiyangjin/fudiyangjin.github.io/2021/07/11/hello-world/">Hello World</a>
+            <a href="/2021/07/11/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -574,9 +574,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/fudiyangjin/fudiyangjin.github.io/" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="/fudiyangjin/fudiyangjin.github.io/archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -585,15 +585,15 @@
 
 
   
-<link rel="stylesheet" href="/fudiyangjin/fudiyangjin.github.io/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
   
-<script src="/fudiyangjin/fudiyangjin.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
-<script src="/fudiyangjin/fudiyangjin.github.io/js/script.js"></script>
+<script src="/js/script.js"></script>
 
 
 
