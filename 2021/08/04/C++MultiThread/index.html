@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="线程、进程基本概念一个进程代表计算机中实际运行的一个程序，并且每个进程都有自己独立的进程地址空间和上下文堆栈，就一个程序本身执行的操作而言，进程不执行任何进程代码，只提供一个大环境容器，进程中实际执行程序的是线程。因此一个进程中至少有一个线程。 线程是进程中实际执行代码的最小单元，由操作系统安排调度。 线程的基本操作创建线程（Linux）12345678int pthread_create(pth">
+<meta name="description" content="C++多线程介绍及其API函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程与资源同步">
 <meta property="og:url" content="https://fudiyangjin.github.io/2021/08/04/C++MultiThread/index.html">
 <meta property="og:site_name" content="fudiyangjin">
-<meta property="og:description" content="线程、进程基本概念一个进程代表计算机中实际运行的一个程序，并且每个进程都有自己独立的进程地址空间和上下文堆栈，就一个程序本身执行的操作而言，进程不执行任何进程代码，只提供一个大环境容器，进程中实际执行程序的是线程。因此一个进程中至少有一个线程。 线程是进程中实际执行代码的最小单元，由操作系统安排调度。 线程的基本操作创建线程（Linux）12345678int pthread_create(pth">
+<meta property="og:description" content="C++多线程介绍及其API函数">
 <meta property="og:locale">
 <meta property="og:image" content="https://fudiyangjin.github.io/2021/08/04/C++MultiThread/.thread1.png">
 <meta property="og:image" content="https://fudiyangjin.github.io/2021/08/04/C++MultiThread/thread2.png">
@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://fudiyangjin.github.io/2021/08/04/C++MultiThread/9.png">
 <meta property="og:image" content="https://fudiyangjin.github.io/2021/08/04/C++MultiThread/%E5%A4%9A%E7%BA%BF%E7%A8%8B-1.png">
 <meta property="article:published_time" content="2021-08-04T10:54:48.000Z">
-<meta property="article:modified_time" content="2021-08-04T10:56:13.383Z">
+<meta property="article:modified_time" content="2021-08-04T11:00:54.749Z">
 <meta property="article:author" content="巨鹏辉">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://fudiyangjin.github.io/2021/08/04/C++MultiThread/.thread1.png">
@@ -319,7 +319,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-04T18:56:13+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-04T19:00:54+08:00">
                 2021-08-04
               </time>
             
@@ -353,7 +353,10 @@
       
 
       
-        <h1 id="线程、进程基本概念"><a href="#线程、进程基本概念" class="headerlink" title="线程、进程基本概念"></a>线程、进程基本概念</h1><p>一个进程代表计算机中实际运行的一个程序，并且每个进程都有自己独立的进程地址空间和上下文堆栈，就一个程序本身执行的操作而言，进程不执行任何进程代码，只提供一个大环境容器，进程中实际执行程序的是线程。因此一个进程中至少有一个线程。</p>
+        <p>C++多线程介绍及其API函数</p>
+<span id="more"></span>
+
+<h1 id="线程、进程基本概念"><a href="#线程、进程基本概念" class="headerlink" title="线程、进程基本概念"></a>线程、进程基本概念</h1><p>一个进程代表计算机中实际运行的一个程序，并且每个进程都有自己独立的进程地址空间和上下文堆栈，就一个程序本身执行的操作而言，进程不执行任何进程代码，只提供一个大环境容器，进程中实际执行程序的是线程。因此一个进程中至少有一个线程。</p>
 <p>线程是进程中实际执行代码的最小单元，由操作系统安排调度。</p>
 <h1 id="线程的基本操作"><a href="#线程的基本操作" class="headerlink" title="线程的基本操作"></a>线程的基本操作</h1><h2 id="创建线程（Linux）"><a href="#创建线程（Linux）" class="headerlink" title="创建线程（Linux）"></a>创建线程（Linux）</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span><span class="params">(<span class="keyword">pthread_t</span> *thread,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> * attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span> *),</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="keyword">void</span> *arg)</span></span>;</span><br><span class="line"><span class="comment">//attr指定了线程的属性，一般被设为NULL</span></span><br><span class="line"><span class="comment">//参数start_routine指定了线程函数</span></span><br><span class="line"><span class="comment">//参数arg用于在创建线程时将某个参数传入线程函数中</span></span><br><span class="line"><span class="comment">//返回值：成功返回0，失败返回错误码</span></span><br></pre></td></tr></table></figure>
 
@@ -669,6 +672,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2021/08/04/MYSQL-aliTask2/" rel="prev" title="MYSQL-aliTask2">
+                MYSQL-aliTask2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -744,7 +751,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

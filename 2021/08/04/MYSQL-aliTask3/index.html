@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="TASK3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MYSQL-aliTask3">
+<meta property="og:url" content="https://fudiyangjin.github.io/2021/08/04/MYSQL-aliTask3/index.html">
+<meta property="og:site_name" content="fudiyangjin">
+<meta property="og:description" content="TASK3">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-08-04T11:02:09.000Z">
+<meta property="article:modified_time" content="2021-08-04T11:09:56.535Z">
+<meta property="article:author" content="巨鹏辉">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fudiyangjin.github.io/2021/08/04/MYSQL-aliTask3/"/>
+
+
+
+
+
+  <title>MYSQL-aliTask3 | fudiyangjin</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">fudiyangjin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fudiyangjin.github.io/2021/08/04/MYSQL-aliTask3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fudiyangjin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MYSQL-aliTask3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-04T19:02:09+08:00">
+                2021-08-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-04T19:09:56+08:00">
+                2021-08-04
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>TASK3</p>
+<span id="more"></span>
+
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>视图是一个虚拟的表，不同于直接操作数据表，视图是依据SELECT语句来创建的，所以操作视图时会根据创建视图的SELECT语句生成一张虚拟表，然后在这张虚拟表上做SQL操作。</p>
+<h2 id="视图和表的区别"><a href="#视图和表的区别" class="headerlink" title="视图和表的区别"></a>视图和表的区别</h2><p>一句话概括——是否保存了实际的数据。所以视图并不是数据库真实储存的数据表，它可以看作是一个窗口，通过这个窗口可以看到数据库表中真实存在的数据。因此，视图是基于真实表的一张虚拟表。</p>
+<h2 id="视图的好处"><a href="#视图的好处" class="headerlink" title="视图的好处"></a>视图的好处</h2><ul>
+<li>可以将频繁使用的SELECT语句保存以提高效率。</li>
+<li>可以使用户看到的数据更加清晰。</li>
+<li>不公开数据表全部字段，增强保密性。</li>
+<li>降低数据的冗余。</li>
+</ul>
+<h2 id="视图的操作"><a href="#视图的操作" class="headerlink" title="视图的操作"></a>视图的操作</h2><p>*<strong>CREATE VIEW &lt;视图名称&gt;(&lt;列名1&gt;,&lt;列名2&gt;,……)AS&lt;SELECT语句&gt;*</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">VIEW</span> productsum(product_type, cnt_product)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">AS</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_type, <span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> product_type;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.23</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> productsum;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+-------------+</span></span><br><span class="line"><span class="operator">|</span> product_type <span class="operator">|</span> cnt_product <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+-------------+</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>           <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 办公用品     <span class="operator">|</span>           <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>           <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+-------------+</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>为了学习多表视图，再创建一张表，相关代码如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(shop_id    <span class="type">CHAR</span>(<span class="number">4</span>)       <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">shop_name  <span class="type">VARCHAR</span>(<span class="number">200</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span>, </span><br><span class="line">product_id <span class="type">CHAR</span>(<span class="number">4</span>)       <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">quantity   <span class="type">INTEGER</span>       <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (shop_id, product_id));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000A&#x27;</span>,    <span class="string">&#x27;东京&#x27;</span>,        <span class="string">&#x27;0001&#x27;</span>,    <span class="number">30</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000A&#x27;</span>,    <span class="string">&#x27;东京&#x27;</span>,        <span class="string">&#x27;0002&#x27;</span>,    <span class="number">50</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000A&#x27;</span>,    <span class="string">&#x27;东京&#x27;</span>,        <span class="string">&#x27;0003&#x27;</span>,    <span class="number">15</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>,    <span class="string">&#x27;名古屋&#x27;</span>,    <span class="string">&#x27;0002&#x27;</span>,    <span class="number">30</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>,    <span class="string">&#x27;名古屋&#x27;</span>,    <span class="string">&#x27;0003&#x27;</span>,    <span class="number">120</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>,    <span class="string">&#x27;名古屋&#x27;</span>,    <span class="string">&#x27;0004&#x27;</span>,    <span class="number">20</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>,    <span class="string">&#x27;名古屋&#x27;</span>,    <span class="string">&#x27;0006&#x27;</span>,    <span class="number">10</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>,    <span class="string">&#x27;名古屋&#x27;</span>,    <span class="string">&#x27;0007&#x27;</span>,    <span class="number">40</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>,    <span class="string">&#x27;大阪&#x27;</span>,        <span class="string">&#x27;0003&#x27;</span>,    <span class="number">20</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>,    <span class="string">&#x27;大阪&#x27;</span>,        <span class="string">&#x27;0004&#x27;</span>,    <span class="number">50</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>,    <span class="string">&#x27;大阪&#x27;</span>,        <span class="string">&#x27;0006&#x27;</span>,    <span class="number">90</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>,    <span class="string">&#x27;大阪&#x27;</span>,        <span class="string">&#x27;0007&#x27;</span>,    <span class="number">70</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop_product (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000D&#x27;</span>,    <span class="string">&#x27;福冈&#x27;</span>,        <span class="string">&#x27;0001&#x27;</span>,    <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在product表和shop_product基础上创建视图</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">VIEW</span> view_shop_product(product_type, sale_price, shop_name)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">AS</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_type, sale_price, shop_name</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product, shop_product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> product.product_id <span class="operator">=</span> shop_product.product_id;</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> view_shop_product;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+-----------+</span></span><br><span class="line"><span class="operator">|</span> product_type <span class="operator">|</span> sale_price <span class="operator">|</span> shop_name <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+-----------+</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span> 东京      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 办公用品     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span> 东京      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span> 东京      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 办公用品     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span> 名古屋    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span> 名古屋    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span> 名古屋    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span> 名古屋    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">880</span> <span class="operator">|</span> 名古屋    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span> 大阪      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span> 大阪      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span> 大阪      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">880</span> <span class="operator">|</span> 大阪      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span> 福冈      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+-----------+</span></span><br></pre></td></tr></table></figure>
+
+<p>在视图上查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> sale_price, shop_name</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> view_shop_product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> product_type <span class="operator">=</span> <span class="string">&#x27;衣服&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-----------+</span></span><br><span class="line"><span class="operator">|</span> sale_price <span class="operator">|</span> shop_name <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-----------+</span></span><br><span class="line"><span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span> 东京      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span> 东京      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span> 名古屋    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span> 大阪      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span> 福冈      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+-----------+</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>修改视图结构</p>
+<p>*<strong>ALTER VIEW &lt;视图名&gt; AS &lt;SELECT语句&gt;*</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">VIEW</span> productSum</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">AS</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_type, sale_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> regist_date <span class="operator">&gt;</span> <span class="string">&#x27;2009-09-11&#x27;</span>;</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> productSum;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> product_type <span class="operator">|</span> sale_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 办公用品     <span class="operator">|</span>        <span class="number">100</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>更新视图内容</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> UPDATE productsum</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">SET</span> sale_price <span class="operator">=</span> <span class="string">&#x27;5000&#x27;</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> product_type <span class="operator">=</span> <span class="string">&#x27;办公用品&#x27;</span>;</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> productSum;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> product_type <span class="operator">|</span> sale_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 办公用品     <span class="operator">|</span>       <span class="number">5000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>删除视图</p>
+<p>*<strong>DROP  VIEW &lt;视图名1&gt;[, &lt;视图名2&gt;……]*</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">DROP</span> <span class="keyword">VIEW</span> productSum;</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SHOW</span> TABLES;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------+</span></span><br><span class="line"><span class="operator">|</span> Tables_in_shop    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------+</span></span><br><span class="line"><span class="operator">|</span> addressbook       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> product           <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> productins        <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> shop_product      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> view_shop_product <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------+</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><p>子查询指一个查询语句嵌套在另一个查询语句内部的查询，在SELECT子句中先计算子查询，子查询结果作为外层另一个查询的过滤条件，查询可以基于一个表或者多个表。子查询并不像视图会保存在储存介质中，而是在SELECT语句执行之后就消失了。</p>
+<h2 id="嵌套子查询"><a href="#嵌套子查询" class="headerlink" title="嵌套子查询"></a>嵌套子查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_type, cnt_product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span>(<span class="keyword">SELECT</span> product_type,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> cnt_product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> product_type) <span class="keyword">AS</span> productsum</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> cnt_product <span class="operator">=</span> <span class="number">4</span>) <span class="keyword">AS</span> productsun2;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+-------------+</span></span><br><span class="line"><span class="operator">|</span> product_type <span class="operator">|</span> cnt_product <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+-------------+</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span>           <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+-------------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h2><p>标量子查询要求执行的SQL语句只能返回一个值，即表中具体的某行某列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_id, product_name, sale_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> sale_price <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(sale_price) <span class="keyword">FROM</span> product);</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> product_id <span class="operator">|</span> product_name <span class="operator">|</span> sale_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0003</span>       <span class="operator">|</span> 运动T恤      <span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0004</span>       <span class="operator">|</span> 菜刀         <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0005</span>       <span class="operator">|</span> 高压锅       <span class="operator">|</span>       <span class="number">6800</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0008</span>       <span class="operator">|</span> 圆珠笔       <span class="operator">|</span>       <span class="number">5000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+--------------+------------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="关联子查询"><a href="#关联子查询" class="headerlink" title="关联子查询"></a>关联子查询</h2><p>关联子查询就是通过一些标志将内外两层的查询连接起来起到过滤数据的目的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_type, product_name, sale_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product <span class="keyword">AS</span> p1</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> sale_price <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(sale_price)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product <span class="keyword">AS</span> p2</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> p1.product_type <span class="operator">=</span>p2.product_type</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> product_type);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> product_type <span class="operator">|</span> product_name <span class="operator">|</span> sale_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> 衣服         <span class="operator">|</span> 运动T恤      <span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span> 菜刀         <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 厨房用具     <span class="operator">|</span> 高压锅       <span class="operator">|</span>       <span class="number">6800</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 办公用品     <span class="operator">|</span> 圆珠笔       <span class="operator">|</span>       <span class="number">5000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+--------------+------------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>创建出满足下述三个条件的视图（视图名称为 ViewPractice5_1）。使用 product（商品）表作为参照表，假设表中包含初始状态的 8 行数据。</p>
+<ul>
+<li>条件1：销售单价大于等于1000日元。</li>
+<li>条件2：登记日期是2009年9月20日。</li>
+<li>条件3：包含商品名称、销售单价和登记日期三列。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">VIEW</span> ViewPractice5_1(product_name, sale_price, regist_date)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">AS</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, sale_price, regist_date</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> sale_price <span class="operator">&gt;=</span> <span class="number">1000</span> <span class="keyword">AND</span> regist_date <span class="operator">=</span> <span class="string">&#x27;2009-09-20&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.77</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> ViewPractice5_1;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+-------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> sale_price <span class="operator">|</span> regist_date <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+-------------+</span></span><br><span class="line"><span class="operator">|</span> T恤衫        <span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span> <span class="number">2009</span><span class="number">-09</span><span class="number">-20</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 菜刀         <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span> <span class="number">2009</span><span class="number">-09</span><span class="number">-20</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+-------------+</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>请根据如下结果编写 SELECT 语句，其中 sale_price_all 列为全部商品的平均销售单价。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_id, product_name, product_type, sale_price,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(sale_price) <span class="keyword">FROM</span> product) <span class="keyword">AS</span> sale_price_all</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+--------------+--------------+------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> product_id <span class="operator">|</span> product_name <span class="operator">|</span> product_type <span class="operator">|</span> sale_price <span class="operator">|</span> sale_price_all <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+--------------+--------------+------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0001</span>       <span class="operator">|</span> T恤衫        <span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0002</span>       <span class="operator">|</span> 打孔器       <span class="operator">|</span> 办公用品     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0003</span>       <span class="operator">|</span> 运动T恤      <span class="operator">|</span> 衣服         <span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0004</span>       <span class="operator">|</span> 菜刀         <span class="operator">|</span> 厨房用具     <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0005</span>       <span class="operator">|</span> 高压锅       <span class="operator">|</span> 厨房用具     <span class="operator">|</span>       <span class="number">6800</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0006</span>       <span class="operator">|</span> 叉子         <span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0007</span>       <span class="operator">|</span> 擦菜板       <span class="operator">|</span> 厨房用具     <span class="operator">|</span>        <span class="number">880</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0008</span>       <span class="operator">|</span> 圆珠笔       <span class="operator">|</span> 办公用品     <span class="operator">|</span>       <span class="number">5000</span> <span class="operator">|</span>      <span class="number">2710.0000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+--------------+--------------+------------+----------------+</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="各种各样的函数"><a href="#各种各样的函数" class="headerlink" title="各种各样的函数"></a>各种各样的函数</h1><p>SQL自带了各种各样的函数，极大提高了sql语言的便利性。</p>
+<p>所谓函数，类似一个黑盒子，你给它一个输入值，它便按照预设的程序定义给出返回值，输入值称为参数。</p>
+<p>函数大致分为如下几类：</p>
+<ul>
+<li><strong>算术函数 （用来进行数值计算的函数）</strong></li>
+<li><strong>字符串函数 （用来进行字符串操作的函数）</strong></li>
+<li><strong>日期函数 （用来进行日期操作的函数）</strong></li>
+<li><strong>转换函数 （用来转换数据类型和值的函数）</strong></li>
+<li><strong>聚合函数（用来进行数据聚合的函数）</strong></li>
+</ul>
+<h2 id="算数函数"><a href="#算数函数" class="headerlink" title="算数函数"></a>算数函数</h2><p>DDL：创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">USE shop;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> samplemath;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> samplemath</span><br><span class="line">(m <span class="type">float</span>(<span class="number">10</span>,<span class="number">3</span>),</span><br><span class="line">n <span class="type">INT</span>,</span><br><span class="line">p <span class="type">INT</span>);</span><br></pre></td></tr></table></figure>
+
+<p>DML：插入数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> TRANSACTION; <span class="comment">-- 开始事务</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="number">500</span>, <span class="number">0</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="number">-180</span>, <span class="number">0</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="keyword">NULL</span>, <span class="number">7</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="keyword">NULL</span>, <span class="number">5</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="keyword">NULL</span>, <span class="number">4</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="number">8</span>, <span class="keyword">NULL</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="number">2.27</span>, <span class="number">1</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="number">5.555</span>,<span class="number">2</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="keyword">NULL</span>, <span class="number">1</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplemath(m, n, p) <span class="keyword">VALUES</span> (<span class="number">8.76</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>; <span class="comment">-- 提交事务</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span><span class="operator">*</span> <span class="keyword">FROM</span> samplemath;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+------+------+</span></span><br><span class="line"><span class="operator">|</span> m        <span class="operator">|</span> n    <span class="operator">|</span> p    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+------+------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">500.000</span> <span class="operator">|</span>    <span class="number">0</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">-180.000</span> <span class="operator">|</span>    <span class="number">0</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">7</span> <span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">5</span> <span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">4</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">8.000</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2.270</span> <span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">5.555</span> <span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">8.760</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+------+------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>ABS——绝对值</strong></li>
+</ul>
+<p>计算一个数字的绝对值，参数为NULL时，返回值也为NULL。</p>
+<ul>
+<li><strong>MOD——求余数</strong></li>
+</ul>
+<p>计算除法余数的函数，是modulo的缩写，只能对整数列求余数。</p>
+<ul>
+<li><strong>ROUND——四舍五入</strong></li>
+</ul>
+<p>用于进行四舍五入操作</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> m, <span class="built_in">ABS</span>(m) <span class="keyword">AS</span> abs_col, n, p, <span class="built_in">MOD</span>(n,p) <span class="keyword">AS</span> mod_col, ROUND(m,<span class="number">1</span>) <span class="keyword">AS</span> round_col</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> samplemath;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+---------+------+------+---------+-----------+</span></span><br><span class="line"><span class="operator">|</span> m        <span class="operator">|</span> abs_col <span class="operator">|</span> n    <span class="operator">|</span> p    <span class="operator">|</span> mod_col <span class="operator">|</span> round_col <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+---------+------+------+---------+-----------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">500.000</span> <span class="operator">|</span> <span class="number">500.000</span> <span class="operator">|</span>    <span class="number">0</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>       <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">-180.000</span> <span class="operator">|</span> <span class="number">180.000</span> <span class="operator">|</span>    <span class="number">0</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>      <span class="number">-180</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>      <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">7</span> <span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span>       <span class="number">1</span> <span class="operator">|</span>      <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">5</span> <span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span>       <span class="number">1</span> <span class="operator">|</span>      <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">4</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>      <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">8.000</span> <span class="operator">|</span>   <span class="number">8.000</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>         <span class="number">8</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2.270</span> <span class="operator">|</span>   <span class="number">2.270</span> <span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>       <span class="number">2.3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">5.555</span> <span class="operator">|</span>   <span class="number">5.555</span> <span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>       <span class="number">5.6</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>      <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">8.760</span> <span class="operator">|</span>   <span class="number">8.760</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>       <span class="number">8.8</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+---------+------+------+---------+-----------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><p>DDL：创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> samplestr;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> samplestr</span><br><span class="line">(str1 <span class="type">VARCHAR</span> (<span class="number">40</span>),</span><br><span class="line">str2 <span class="type">VARCHAR</span> (<span class="number">40</span>),</span><br><span class="line">str3 <span class="type">VARCHAR</span> (<span class="number">40</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>DML：插入数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;opx&#x27;</span>, <span class="string">&#x27;rt&#x27;</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;def&#x27;</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;太阳&#x27;</span>, <span class="string">&#x27;月亮&#x27;</span>, <span class="string">&#x27;火星&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;aaa&#x27;</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="keyword">NULL</span>, <span class="string">&#x27;xyz&#x27;</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;@!#$%&#x27;</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;ABC&#x27;</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;aBC&#x27;</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;abc哈哈&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;abcdefabc&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplestr (str1, str2, str3) <span class="keyword">VALUES</span> (<span class="string">&#x27;micmic&#x27;</span>, <span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;I&#x27;</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> samplestr;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------+------+</span></span><br><span class="line"><span class="operator">|</span> str1      <span class="operator">|</span> str2 <span class="operator">|</span> str3 <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------+------+</span></span><br><span class="line"><span class="operator">|</span> opx       <span class="operator">|</span> rt   <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abc       <span class="operator">|</span> def  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 太阳      <span class="operator">|</span> 月亮 <span class="operator">|</span> 火星 <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> aaa       <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> xyz  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> @<span class="operator">!</span>#$<span class="operator">%</span>     <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ABC       <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> aBC       <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abc哈哈   <span class="operator">|</span> abc  <span class="operator">|</span> ABC  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abcdefabc <span class="operator">|</span> abc  <span class="operator">|</span> ABC  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> micmic    <span class="operator">|</span> i    <span class="operator">|</span> I    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------+------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>CONCAT——拼接</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONCAT（str1, str2, str3)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>LENGTH——字符串长度</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LENGTH(str1)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>LOWER——小写转换</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">LOWER</span>(str1)</span><br></pre></td></tr></table></figure>
+
+<p>LOWER函数只针对英文字母使用，会将参数中的字符串全转换为小写</p>
+<ul>
+<li><strong>REPLACE——字符串的替换</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REPLACE(对象字符串， 替换前的字符串， 替换后的字符串）</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>SUBSTRING——字符串的截取</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SUBSTRING</span>(对象字符串<span class="keyword">FROM</span>截取的起始位置<span class="keyword">FOR</span>截取的字符数)</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> str1, str2, str3, CONCAT(str1, str2, str3) <span class="keyword">AS</span> str_concat,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> LENGTH(str1) <span class="keyword">AS</span> len_str,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">LOWER</span>(str1) <span class="keyword">AS</span> low_str,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> REPLACE(str1, str2, str3) <span class="keyword">AS</span> rep_str,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">SUBSTRING</span>(str1 <span class="keyword">FROM</span> <span class="number">3</span> <span class="keyword">FOR</span> <span class="number">2</span>) <span class="keyword">AS</span> sub_str</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> samplestr;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------+------+-----------------+---------+-----------+-----------+---------+</span></span><br><span class="line"><span class="operator">|</span> str1      <span class="operator">|</span> str2 <span class="operator">|</span> str3 <span class="operator">|</span> str_concat      <span class="operator">|</span> len_str <span class="operator">|</span> low_str   <span class="operator">|</span> rep_str   <span class="operator">|</span> sub_str <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------+------+-----------------+---------+-----------+-----------+---------+</span></span><br><span class="line"><span class="operator">|</span> opx       <span class="operator">|</span> rt   <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>            <span class="operator">|</span>       <span class="number">3</span> <span class="operator">|</span> opx       <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> x       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abc       <span class="operator">|</span> def  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>            <span class="operator">|</span>       <span class="number">3</span> <span class="operator">|</span> abc       <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> c       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 太阳      <span class="operator">|</span> 月亮 <span class="operator">|</span> 火星 <span class="operator">|</span> 太阳月亮火星    <span class="operator">|</span>       <span class="number">6</span> <span class="operator">|</span> 太阳      <span class="operator">|</span> 太阳      <span class="operator">|</span>         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> aaa       <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>            <span class="operator">|</span>       <span class="number">3</span> <span class="operator">|</span> aaa       <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> a       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> xyz  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>            <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> @<span class="operator">!</span>#$<span class="operator">%</span>     <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>            <span class="operator">|</span>       <span class="number">5</span> <span class="operator">|</span> @<span class="operator">!</span>#$<span class="operator">%</span>     <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> #$      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ABC       <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>            <span class="operator">|</span>       <span class="number">3</span> <span class="operator">|</span> abc       <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> C       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> aBC       <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="keyword">NULL</span>            <span class="operator">|</span>       <span class="number">3</span> <span class="operator">|</span> abc       <span class="operator">|</span> <span class="keyword">NULL</span>      <span class="operator">|</span> C       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abc哈哈   <span class="operator">|</span> abc  <span class="operator">|</span> ABC  <span class="operator">|</span> abc哈哈abcABC   <span class="operator">|</span>       <span class="number">9</span> <span class="operator">|</span> abc哈哈   <span class="operator">|</span> ABC哈哈   <span class="operator">|</span> c哈     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abcdefabc <span class="operator">|</span> abc  <span class="operator">|</span> ABC  <span class="operator">|</span> abcdefabcabcABC <span class="operator">|</span>       <span class="number">9</span> <span class="operator">|</span> abcdefabc <span class="operator">|</span> ABCdefABC <span class="operator">|</span> cd      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> micmic    <span class="operator">|</span> i    <span class="operator">|</span> I    <span class="operator">|</span> micmiciI        <span class="operator">|</span>       <span class="number">6</span> <span class="operator">|</span> micmic    <span class="operator">|</span> mIcmIc    <span class="operator">|</span> cm      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+------+------+-----------------+---------+-----------+-----------+---------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h2><ul>
+<li><strong>CURRENT_DATE——获取当前日期</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="built_in">CURRENT_DATE</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">CURRENT_DATE</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2021</span><span class="number">-07</span><span class="number">-22</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>CURRENT_TIME——当前时间</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="built_in">CURRENT_TIME</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">CURRENT_TIME</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">16</span>:<span class="number">09</span>:<span class="number">38</span>     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>CURRENT_TIMESTAMP——当前日期和时间</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="built_in">CURRENT_TIMESTAMP</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">CURRENT_TIMESTAMP</span>   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2021</span><span class="number">-07</span><span class="number">-22</span> <span class="number">16</span>:<span class="number">10</span>:<span class="number">35</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>EXTRACT——截取日期元素</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">as</span> now,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">EXTRACT</span>(<span class="keyword">YEAR</span>   <span class="keyword">FROM</span> <span class="built_in">CURRENT_TIMESTAMP</span>) <span class="keyword">AS</span> <span class="keyword">year</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">EXTRACT</span>(<span class="keyword">MONTH</span>  <span class="keyword">FROM</span> <span class="built_in">CURRENT_TIMESTAMP</span>) <span class="keyword">AS</span> <span class="keyword">month</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">EXTRACT</span>(<span class="keyword">DAY</span>    <span class="keyword">FROM</span> <span class="built_in">CURRENT_TIMESTAMP</span>) <span class="keyword">AS</span> <span class="keyword">day</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">EXTRACT</span>(<span class="keyword">HOUR</span>   <span class="keyword">FROM</span> <span class="built_in">CURRENT_TIMESTAMP</span>) <span class="keyword">AS</span> <span class="keyword">hour</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">EXTRACT</span>(<span class="keyword">MINUTE</span> <span class="keyword">FROM</span> <span class="built_in">CURRENT_TIMESTAMP</span>) <span class="keyword">AS</span> <span class="keyword">MINute</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">EXTRACT</span>(<span class="keyword">SECOND</span> <span class="keyword">FROM</span> <span class="built_in">CURRENT_TIMESTAMP</span>) <span class="keyword">AS</span> <span class="keyword">second</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+------+-------+------+------+--------+--------+</span></span><br><span class="line"><span class="operator">|</span> now                 <span class="operator">|</span> <span class="keyword">year</span> <span class="operator">|</span> <span class="keyword">month</span> <span class="operator">|</span> <span class="keyword">day</span>  <span class="operator">|</span> <span class="keyword">hour</span> <span class="operator">|</span> <span class="keyword">MINute</span> <span class="operator">|</span> <span class="keyword">second</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+------+-------+------+------+--------+--------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2021</span><span class="number">-07</span><span class="number">-22</span> <span class="number">16</span>:<span class="number">11</span>:<span class="number">27</span> <span class="operator">|</span> <span class="number">2021</span> <span class="operator">|</span>     <span class="number">7</span> <span class="operator">|</span>   <span class="number">22</span> <span class="operator">|</span>   <span class="number">16</span> <span class="operator">|</span>     <span class="number">11</span> <span class="operator">|</span>     <span class="number">27</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+------+-------+------+------+--------+--------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h2><ul>
+<li><strong>CAST——类型转换</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="built_in">CAST</span>(<span class="string">&#x27;0001&#x27;</span> <span class="keyword">AS</span> SIGNED <span class="type">INTEGER</span>) <span class="keyword">AS</span> int_col;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------+</span></span><br><span class="line"><span class="operator">|</span> int_col <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------+</span></span><br><span class="line"><span class="operator">|</span>       <span class="number">1</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>COALESCE——将NULL转换成其他值</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="number">11</span>) <span class="keyword">AS</span> col_1,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="string">&#x27;hello world&#x27;</span>, <span class="keyword">NULL</span>) <span class="keyword">AS</span> col_2,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="string">&#x27;2020-11-01&#x27;</span>) <span class="keyword">AS</span> col_3;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+-------------+------------+</span></span><br><span class="line"><span class="operator">|</span> col_1 <span class="operator">|</span> col_2       <span class="operator">|</span> col_3      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+-------------+------------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">11</span> <span class="operator">|</span> hello world <span class="operator">|</span> <span class="number">2020</span><span class="number">-11</span><span class="number">-01</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+-------------+------------+</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="谓词"><a href="#谓词" class="headerlink" title="谓词"></a>谓词</h1><p>谓词是返回值为真值的函数，包括TRUE/FALSE/UNKNOWN</p>
+<h2 id="LIKE谓词——用于字符串的部分一致查询"><a href="#LIKE谓词——用于字符串的部分一致查询" class="headerlink" title="LIKE谓词——用于字符串的部分一致查询"></a>LIKE谓词——用于字符串的部分一致查询</h2><p>DDL：创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> samplelike</span><br><span class="line">( strcol <span class="type">VARCHAR</span>(<span class="number">6</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (strcol));</span><br><span class="line"><span class="keyword">START</span> TRANSACTION; <span class="comment">-- 开始事务</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplelike (strcol) <span class="keyword">VALUES</span> (<span class="string">&#x27;abcddd&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplelike (strcol) <span class="keyword">VALUES</span> (<span class="string">&#x27;dddabc&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplelike (strcol) <span class="keyword">VALUES</span> (<span class="string">&#x27;abdddc&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplelike (strcol) <span class="keyword">VALUES</span> (<span class="string">&#x27;abcdd&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplelike (strcol) <span class="keyword">VALUES</span> (<span class="string">&#x27;ddabc&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> samplelike (strcol) <span class="keyword">VALUES</span> (<span class="string">&#x27;abddc&#x27;</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>; <span class="comment">-- 提交事务</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> samplelike;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> strcol <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> abcdd  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abcddd <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abddc  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abdddc <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ddabc  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> dddabc <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>前方一致：选取出“dddabc”</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> samplelike</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> strcol <span class="keyword">LIKE</span> <span class="string">&#x27;ddd%&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> strcol <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> dddabc <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line">#其中<span class="operator">%</span>代表“零个或多个任意字符串&quot;的特殊符号，本例中代表ddd开头的所有字符串</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>中间一致：选出”abcddd“，”dddabc“，”abdddc“</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> samplelike</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> strcol <span class="keyword">LIKE</span> <span class="string">&#x27;%ddd%&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> strcol <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> abcddd <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> abdddc <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> dddabc <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>后方一致：选取出”abcddd“</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> samplelike</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> strcol <span class="keyword">LIKE</span> <span class="string">&#x27;%ddd&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> strcol <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> abcddd <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>_下划线代表任意一个字符</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> samplelike</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> strcol <span class="keyword">LIKE</span> <span class="string">&#x27;abc__&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> strcol <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> abcdd  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line">#用了<span class="number">2</span>个_</span><br></pre></td></tr></table></figure>
+
+<h2 id="BETEEN谓词——用于范围查询"><a href="#BETEEN谓词——用于范围查询" class="headerlink" title="BETEEN谓词——用于范围查询"></a>BETEEN谓词——用于范围查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, sale_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> sale_price <span class="keyword">BETWEEN</span> <span class="number">100</span> <span class="keyword">AND</span> <span class="number">1000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> sale_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> T恤衫        <span class="operator">|</span>       <span class="number">1000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 打孔器       <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 叉子         <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 擦菜板       <span class="operator">|</span>        <span class="number">880</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>BETWEEN是闭区间，也就是说会包含100和1000这两个临界值，如果不想让结果包含临界值，那么就使用&lt;和&gt;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, sale_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> sale_price <span class="operator">&gt;</span> <span class="number">100</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">AND</span> sale_price <span class="operator">&lt;</span> <span class="number">1000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> sale_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> 打孔器       <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 叉子         <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 擦菜板       <span class="operator">|</span>        <span class="number">880</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="IS-NULL、IS-NOT-NULL——用于判断是否为NULL"><a href="#IS-NULL、IS-NOT-NULL——用于判断是否为NULL" class="headerlink" title="IS NULL、IS NOT NULL——用于判断是否为NULL"></a>IS NULL、IS NOT NULL——用于判断是否为NULL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, purchase_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> purchase_price <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> purchase_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> 叉子         <span class="operator">|</span>           <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 圆珠笔       <span class="operator">|</span>           <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, purchase_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> purchase_price <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> purchase_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> T恤衫        <span class="operator">|</span>            <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 打孔器       <span class="operator">|</span>            <span class="number">320</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 运动T恤      <span class="operator">|</span>           <span class="number">2800</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 菜刀         <span class="operator">|</span>           <span class="number">2800</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 高压锅       <span class="operator">|</span>           <span class="number">5000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 擦菜板       <span class="operator">|</span>            <span class="number">790</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="IN、OR的用法"><a href="#IN、OR的用法" class="headerlink" title="IN、OR的用法"></a>IN、OR的用法</h2><p>多个查询条件取并集时可以选择使用or语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, purchase_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> purchase_price <span class="operator">=</span> <span class="number">320</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">OR</span> purchase_price <span class="operator">=</span> <span class="number">500</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">OR</span> purchase_price <span class="operator">=</span> <span class="number">5000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> purchase_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> T恤衫        <span class="operator">|</span>            <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 打孔器       <span class="operator">|</span>            <span class="number">320</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 高压锅       <span class="operator">|</span>           <span class="number">5000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>数值越多SQL语句越长，此时可以利用IN替代</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, purchase_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> purchase_price <span class="keyword">IN</span>(<span class="number">320</span>, <span class="number">500</span>, <span class="number">5000</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> purchase_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> T恤衫        <span class="operator">|</span>            <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 打孔器       <span class="operator">|</span>            <span class="number">320</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 高压锅       <span class="operator">|</span>           <span class="number">5000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>希望选出purchae_price不是320、500、5000的商品时可以使用NOT IN</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, purchase_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> purchase_price <span class="keyword">NOT</span> <span class="keyword">IN</span>(<span class="number">320</span>, <span class="number">500</span>, <span class="number">5000</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> purchase_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br><span class="line"><span class="operator">|</span> 运动T恤      <span class="operator">|</span>           <span class="number">2800</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 菜刀         <span class="operator">|</span>           <span class="number">2800</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 擦菜板       <span class="operator">|</span>            <span class="number">790</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+----------------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用子查询作为IN谓词的参数"><a href="#使用子查询作为IN谓词的参数" class="headerlink" title="使用子查询作为IN谓词的参数"></a>使用子查询作为IN谓词的参数</h2><p>DDL-创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> shopproduct</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> (shop_id <span class="type">CHAR</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> shop_name <span class="type">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> product_id <span class="type">CHAR</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> quantity <span class="type">INTEGER</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">PRIMARY</span> KEY(shop_id, product_id));</span><br></pre></td></tr></table></figure>
+
+<p>DML：插入数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> TRANSACTION; <span class="comment">-- 开始事务</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000A&#x27;</span>, <span class="string">&#x27;东京&#x27;</span>, <span class="string">&#x27;0001&#x27;</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000A&#x27;</span>, <span class="string">&#x27;东京&#x27;</span>, <span class="string">&#x27;0002&#x27;</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000A&#x27;</span>, <span class="string">&#x27;东京&#x27;</span>, <span class="string">&#x27;0003&#x27;</span>, <span class="number">15</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>, <span class="string">&#x27;名古屋&#x27;</span>, <span class="string">&#x27;0002&#x27;</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>, <span class="string">&#x27;名古屋&#x27;</span>, <span class="string">&#x27;0003&#x27;</span>, <span class="number">120</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>, <span class="string">&#x27;名古屋&#x27;</span>, <span class="string">&#x27;0004&#x27;</span>, <span class="number">20</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>, <span class="string">&#x27;名古屋&#x27;</span>, <span class="string">&#x27;0006&#x27;</span>, <span class="number">10</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000B&#x27;</span>, <span class="string">&#x27;名古屋&#x27;</span>, <span class="string">&#x27;0007&#x27;</span>, <span class="number">40</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>, <span class="string">&#x27;大阪&#x27;</span>, <span class="string">&#x27;0003&#x27;</span>, <span class="number">20</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>, <span class="string">&#x27;大阪&#x27;</span>, <span class="string">&#x27;0004&#x27;</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>, <span class="string">&#x27;大阪&#x27;</span>, <span class="string">&#x27;0006&#x27;</span>, <span class="number">90</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000C&#x27;</span>, <span class="string">&#x27;大阪&#x27;</span>, <span class="string">&#x27;0007&#x27;</span>, <span class="number">70</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shopproduct (shop_id, shop_name, product_id, quantity) <span class="keyword">VALUES</span> (<span class="string">&#x27;000D&#x27;</span>, <span class="string">&#x27;福冈&#x27;</span>, <span class="string">&#x27;0001&#x27;</span>, <span class="number">100</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>; <span class="comment">-- 提交事务</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> shopproduct;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------+-----------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span> shop_id <span class="operator">|</span> shop_name <span class="operator">|</span> product_id <span class="operator">|</span> quantity <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------+-----------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>A    <span class="operator">|</span> 东京      <span class="operator">|</span> <span class="number">0001</span>       <span class="operator">|</span>       <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>A    <span class="operator">|</span> 东京      <span class="operator">|</span> <span class="number">0002</span>       <span class="operator">|</span>       <span class="number">50</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>A    <span class="operator">|</span> 东京      <span class="operator">|</span> <span class="number">0003</span>       <span class="operator">|</span>       <span class="number">15</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>B    <span class="operator">|</span> 名古屋    <span class="operator">|</span> <span class="number">0002</span>       <span class="operator">|</span>       <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>B    <span class="operator">|</span> 名古屋    <span class="operator">|</span> <span class="number">0003</span>       <span class="operator">|</span>      <span class="number">120</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>B    <span class="operator">|</span> 名古屋    <span class="operator">|</span> <span class="number">0004</span>       <span class="operator">|</span>       <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>B    <span class="operator">|</span> 名古屋    <span class="operator">|</span> <span class="number">0006</span>       <span class="operator">|</span>       <span class="number">10</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>B    <span class="operator">|</span> 名古屋    <span class="operator">|</span> <span class="number">0007</span>       <span class="operator">|</span>       <span class="number">40</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>C    <span class="operator">|</span> 大阪      <span class="operator">|</span> <span class="number">0003</span>       <span class="operator">|</span>       <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>C    <span class="operator">|</span> 大阪      <span class="operator">|</span> <span class="number">0004</span>       <span class="operator">|</span>       <span class="number">50</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>C    <span class="operator">|</span> 大阪      <span class="operator">|</span> <span class="number">0006</span>       <span class="operator">|</span>       <span class="number">90</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>C    <span class="operator">|</span> 大阪      <span class="operator">|</span> <span class="number">0007</span>       <span class="operator">|</span>       <span class="number">70</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">000</span>D    <span class="operator">|</span> 福冈      <span class="operator">|</span> <span class="number">0001</span>       <span class="operator">|</span>      <span class="number">100</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------+-----------+------------+----------+</span></span><br></pre></td></tr></table></figure>
+
+<p>假设想要去出大阪在售商品的销售单价应该：</p>
+<ul>
+<li>取出大版门店的在售商品product_id</li>
+<li>取出大版门店在售商品的销售单价sale_price</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_id</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> shopproduct</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> shop_id <span class="operator">=</span> <span class="string">&#x27;000C&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+</span></span><br><span class="line"><span class="operator">|</span> product_id <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0003</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0004</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0006</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">0007</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>上述语句取出了大版门店的在售商品编号，接下来使用上述语句作为第二步的查询条件来使用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> product_name, sale_price</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> product</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> product_id <span class="keyword">IN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> (<span class="keyword">SELECT</span> product_id</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">FROM</span> shopproduct</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">WHERE</span> shop_id <span class="operator">=</span> <span class="string">&#x27;000C&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> product_name <span class="operator">|</span> sale_price <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br><span class="line"><span class="operator">|</span> 运动T恤      <span class="operator">|</span>       <span class="number">4000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 菜刀         <span class="operator">|</span>       <span class="number">3000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 叉子         <span class="operator">|</span>        <span class="number">500</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> 擦菜板       <span class="operator">|</span>        <span class="number">880</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+------------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="EXIST"><a href="#EXIST" class="headerlink" title="EXIST"></a>EXIST</h2><ul>
+<li><strong>EXIST的使用方法</strong></li>
+</ul>
+<p>谓词的作用是”判断是否存在满足某种条件的记录“，如果存在这样的记录就返回True，如果不存在就返回FALSE。EXIST谓词的主语是”记录“。</p>
+<p>使用EXIST选取出大版门店在售商品的销售单价：</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/04/MYSQL-aliTask2/" rel="next" title="MYSQL-aliTask2">
+                <i class="fa fa-chevron-left"></i> MYSQL-aliTask2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">视图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E5%92%8C%E8%A1%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.</span> <span class="nav-text">视图和表的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">1.2.</span> <span class="nav-text">视图的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.</span> <span class="nav-text">视图的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.</span> <span class="nav-text">子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.</span> <span class="nav-text">嵌套子查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.2.</span> <span class="nav-text">标量子查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.3.</span> <span class="nav-text">关联子查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-number">2.4.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">各种各样的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%95%B0%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">算数函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">日期函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="nav-number">3.4.</span> <span class="nav-text">转换函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%93%E8%AF%8D"><span class="nav-number">4.</span> <span class="nav-text">谓词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LIKE%E8%B0%93%E8%AF%8D%E2%80%94%E2%80%94%E7%94%A8%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%83%A8%E5%88%86%E4%B8%80%E8%87%B4%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.1.</span> <span class="nav-text">LIKE谓词——用于字符串的部分一致查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BETEEN%E8%B0%93%E8%AF%8D%E2%80%94%E2%80%94%E7%94%A8%E4%BA%8E%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.2.</span> <span class="nav-text">BETEEN谓词——用于范围查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IS-NULL%E3%80%81IS-NOT-NULL%E2%80%94%E2%80%94%E7%94%A8%E4%BA%8E%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BANULL"><span class="nav-number">4.3.</span> <span class="nav-text">IS NULL、IS NOT NULL——用于判断是否为NULL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IN%E3%80%81OR%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">IN、OR的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%BD%9C%E4%B8%BAIN%E8%B0%93%E8%AF%8D%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">4.5.</span> <span class="nav-text">使用子查询作为IN谓词的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXIST"><span class="nav-number">4.6.</span> <span class="nav-text">EXIST</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">巨鹏辉</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
